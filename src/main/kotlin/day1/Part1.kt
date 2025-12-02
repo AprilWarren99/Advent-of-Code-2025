@@ -4,13 +4,13 @@ import java.io.File
 
 class Part1 {
 
-    fun turnDial(dial: Set<Int>, currentIndex: Int, direction: Char, increment: Int): Int{
+    fun turnDial(dial: Set<Int>, currentIndex: Int, direction: Char, steps: Int): Int{
         var ci = currentIndex
-        var inc = increment
+        var inc = steps
 
 //    Handle if increment > 99
         if(inc >= 100){
-            inc = increment % 100
+            inc = steps % 100
         }
 
 
