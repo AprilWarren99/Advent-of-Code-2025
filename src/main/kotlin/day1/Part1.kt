@@ -37,7 +37,7 @@ class Part1 {
         var numbersDialedTo: MutableList<Int> = mutableListOf<Int>()
 
 
-        File("src/main/resources/data.txt").forEachLine {
+        File("src/main/kotlin/day1/resources/data.txt").forEachLine {
 //        println("$it: [${it.elementAt(0)}, ${it.slice(1..it.lastIndex)}]")
 
             currentDialValue = (turnDial(
