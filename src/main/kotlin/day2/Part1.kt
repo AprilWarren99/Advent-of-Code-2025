@@ -66,6 +66,5 @@ class Part1 (val partNumber: Int) {
         val lowerBound = getBounds(range)?.elementAt(1)
 
         if(upperBound == null || lowerBound == null) return
-
     }
 }
