@@ -1,6 +1,7 @@
-package org.aoc.day2
+package day2
 
 import java.math.BigInteger
+import kotlin.text.iterator
 
 class Solution (val partNumber: Int, val useTestData: Int) {
     var idRanges: List<String> = listOf()
@@ -21,17 +22,20 @@ class Solution (val partNumber: Int, val useTestData: Int) {
             1 -> idRanges.forEach({
                 println("processing $it")
                 partOne(it)
-                println(sum)
+//                println(sum)
             })
             2 -> idRanges.forEach({
                 println("processing $it")
                 partTwo(it)
-                print("Sum ($sum)\nInvalid ID's $invalidIDs\n")
+//                print("Sum ($sum)\nInvalid ID's $invalidIDs\n")
             })
-
         }
-
     }
+
+    fun getResults(): BigInteger{
+        return sum
+    }
+
     fun getBounds(range: String): Set<BigInteger>?{
         val lowerBound = range.split('-')[0].toBigInteger()
         val upperBound = range.split('-')[1].toBigInteger()
