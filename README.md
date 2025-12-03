@@ -14,4 +14,5 @@ I'm handling each day by creating an object dedicated to solving that problem, I
   - Part 1: Completed
   - Part 2: Abandoned (For now...)
 - Day 3
-  - Part 1: Work in progress... 
+  - Part 1: Completed
+  - Part 2: Work in progress... 
