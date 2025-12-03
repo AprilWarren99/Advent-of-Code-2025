@@ -79,13 +79,15 @@ class Solution (val partNumber: Int, val useTestData: Int) {
         fun checkRepeat(testStr: String, seq: String): Boolean{
             var index = 0
             var last = ""
+            var testString = testStr
             while (index < testStr.length){
-                println("Testing (${seq.slice(index..<seq.length)}), Last ($last)")
-                if(seq.slice(index..<seq.length) == last){
-                    println("repeating numbers found in $testStr")
+                println("Testing ($testString), Last ($last)")
+                if(testString == last){
+                    println("repeating numbers found in $testString")
                     return true
                 }else{
-                    last = seq.slice(index..<seq.length)
+                    last = testString
+                    testString = seq.slice(index..<seq.length)
                     index++
                 }
             }
