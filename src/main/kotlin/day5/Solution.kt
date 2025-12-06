@@ -15,11 +15,12 @@ class Solution(val partNumber: Int, val dataToUse: String) {
 
         when(partNumber){
             1 -> partOne()
+            2 -> partTwo()
         }
     }
     fun partOne(){
         var readingRanges = true
-        var ranges: MutableList<List<BigInteger>> = mutableListOf()
+        val ranges: MutableList<Pair<BigInteger, BigInteger>> = mutableListOf()
         val ids: MutableList<BigInteger> = mutableListOf()
         data.forEach {
             if(it == "") {
@@ -29,7 +30,7 @@ class Solution(val partNumber: Int, val dataToUse: String) {
             if(readingRanges){
                 val startRange = it.split("-")[0].toBigInteger()
                 val endRange = it.split("-")[1].toBigInteger()
-                ranges.add(listOf(startRange, endRange))
+                ranges.add(Pair(startRange, endRange))
             }else{
                 ids.add(it.toBigInteger())
             }
@@ -37,7 +38,7 @@ class Solution(val partNumber: Int, val dataToUse: String) {
         ids.forEach { id ->
             var found = false
             ranges.forEach { range ->
-                if (range[0] <= id && id <= range[1]) {
+                if (range.first <= id && id <= range.second) {
                     found = true
                     return@forEach
                 }
@@ -51,6 +52,13 @@ class Solution(val partNumber: Int, val dataToUse: String) {
         println("There are $numberOfValidIDs validIDs")
         println("id: ${ids.last()}")
         println("range: ${ranges.last()}")
+    }
+
+    fun partTwo(){
+//        Filter out the ID's and only process the ranges
+        data.slice(0..data.indexOf("")).forEach {
+            println(it)
+        }
     }
 
     fun getResults(): Int{return numberOfValidIDs}
