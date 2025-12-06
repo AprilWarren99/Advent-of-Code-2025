@@ -17,7 +17,7 @@ I'm handling each day by creating an object dedicated to solving that problem, I
   - Part 1: Completed
   - Part 2: Abandoned (For now...)
 - Day 4
-  - Part 1: Not started
+  - Part 1: Abandoned due to outside issues, will return.
   - Part 2: Not Started
 - Day 5
   - Part 1: Completed
