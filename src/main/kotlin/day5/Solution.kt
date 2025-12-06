@@ -1,6 +1,5 @@
-package day4
+package day5
 
-import org.w3c.dom.ranges.Range
 import java.io.File
 import java.math.BigInteger
 
@@ -9,9 +8,9 @@ class Solution(val partNumber: Int, val dataToUse: String) {
     var numberOfValidIDs = 0
     init{
         when(dataToUse){
-            "sample" -> data = File("src/main/kotlin/day4/resources/sampleData.txt").readLines()
-            "live" -> data = File("src/main/kotlin/day4/resources/data.txt").readLines()
-            "test" -> data = File("src/main/kotlin/day4/resources/testData.txt").readLines()
+            "sample" -> data = File("src/main/kotlin/day5/resources/sampleData.txt").readLines()
+            "live" -> data = File("src/main/kotlin/day5/resources/data.txt").readLines()
+            "test" -> data = File("src/main/kotlin/day5/resources/testData.txt").readLines()
         }
 
         when(partNumber){

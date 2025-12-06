@@ -1,6 +1,4 @@
-import day2.Solution as Day2
-import day3.Solution as Day3
-import day4.Solution as Day4
+import day5.Solution as Day5
 fun main(){
 //    print(D1P1().run())
 //    print(D1P2().run())
@@ -8,5 +6,5 @@ fun main(){
 //    print("Day 3 part 1's sum is: ${Day3(1, "live").getResult()}")
 //    println(Day3(2, "test").getResult())
 //      print("Day 3 part 2's sum is: ${Day3(2, "live").getResult()}")
-    print(Day4(1, "live").getResults())
+    print(Day5(1, "live").getResults())
 }
