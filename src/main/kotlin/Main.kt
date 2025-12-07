@@ -6,5 +6,5 @@ fun main(){
 //    print("Day 3 part 1's sum is: ${Day3(1, "live").getResult()}")
 //    println(Day3(2, "test").getResult())
 //      print("Day 3 part 2's sum is: ${Day3(2, "live").getResult()}")
-    print(Day5(1, "live").getResults())
+    print(Day5(2, "live").getResults())
 }

@@ -27,43 +27,59 @@ class Solution (val partNumber: Int, val dataToUse: String){
                 }
 
                 /*
-                if not at end of str ->
-                  if finalJoltage[1] + char > finalJoltage ->
+                    if finalJoltage[1] + char > finalJoltage ->
                       finalJoltage = finalJoltage[1] + char
                 */
-                //if(index < it.length-1){
-                    var testInt = 0
-                    if(finalJoltage.last().digitToInt() > finalJoltage.first().digitToInt()){
-                         testInt = finalJoltage.last().plus(char.toString()).toInt()
-                    }else{
-                        testInt = finalJoltage.first().plus(char.toString()).toInt()
-                    }
+
+                var testInt = 0
+                if(finalJoltage.last().digitToInt() > finalJoltage.first().digitToInt()){
+                     testInt = finalJoltage.last().plus(char.toString()).toInt()
+                }else{
+                    testInt = finalJoltage.first().plus(char.toString()).toInt()
+                }
 
 //                    print("testing: $testInt")
 
-                    if(testInt > finalJoltage.toInt()){
+                if(testInt > finalJoltage.toInt()){
 //                        println(" -> greater than $finalJoltage, swapping in, char = ($char)")
-                        finalJoltage = testInt.toString()
-                    }else{
-//                        println(" -> not greater than $finalJoltage")
-                    }
-                /*}
-                else{
-//                    print("At end with ($char), ")
-                    var testInt =  finalJoltage.last().plus(char.toString()).toInt()
-
-                    if(char.digitToInt() > finalJoltage[1].digitToInt()){
-                        finalJoltage = finalJoltage[1] + char.toString()
-                    }
-                }*/
+                    finalJoltage = testInt.toString()
+                }
             }
                 println("Adding $finalJoltage to sum")
                 sum += finalJoltage.toInt()
         }
     }
 
-    fun partTwo(){
-//        Find the longest string<int> of length 12 where each digitis the highest of the ones prior??
+    fun partTwo() {
+//        Find the longest string<int> of length 12 where each digit is the highest of the ones prior??
+
+        data.forEach{
+            var currentLargest = it.reversed().slice(0..<12)
+            val remainingDigits = it.reversed().slice(12..<it.length)
+
+            remainingDigits.forEach { digit ->
+//                is there a bigger digit further to in?
+                var biggerDigitToCome = false
+                val currentLargestLessFirst = remainingDigits.slice(1..<remainingDigits.length)
+
+                currentLargestLessFirst.forEach{d ->
+                    if(d.digitToInt() > digit.digitToInt()){
+//                        there is a bigger digit further down so we should skip this
+                        biggerDigitToCome = true
+                    }
+                }
+                if(biggerDigitToCome) return@forEach
+
+//                if there is no bigger digit to come, remove the 1st digit in currentLargest, add the
+//                current digit to the end, if its a larger value, update tempStr to it
+                var tempStr = currentLargest.slice(1..<currentLargest.length) + digit
+                println("CL: $currentLargest\nTS: $tempStr")
+                if(tempStr > currentLargest){
+                    currentLargest = tempStr
+                }
+            }
+            println("The largest is $currentLargest")
+        }
     }
 
     fun getResult(): Int{return sum}

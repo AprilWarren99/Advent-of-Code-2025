@@ -56,8 +56,22 @@ class Solution(val partNumber: Int, val dataToUse: String) {
 
     fun partTwo(){
 //        Filter out the ID's and only process the ranges
-        data.slice(0..data.indexOf("")).forEach {
-            println(it)
+
+        val r = data.slice(0..<data.indexOf("")).sorted()
+        val allIDs = mutableListOf<BigInteger>()
+        r.forEach {
+            val (start, end) = it.split('-').map{it.toBigInteger()}
+            var count = start
+            if(start < end){
+                while(count <= end){
+                    if(count !in allIDs){
+                        allIDs.add(count)
+                        numberOfValidIDs++
+                    }
+                    println("Processing range $start-$end, number $count, found $numberOfValidIDs")
+                    count++
+                }
+            }
         }
     }
 
